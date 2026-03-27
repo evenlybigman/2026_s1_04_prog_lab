@@ -89,7 +89,7 @@ int main() {
 			printf("WIN");
 			break;
 		}
-		//플레이어의 입력을 받고 이동
+		//플레이어의 입력을 받고 플레이어 이동
 		input = _getch();
 		switch (input) {
 		case 'w':
