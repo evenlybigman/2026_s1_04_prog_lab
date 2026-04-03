@@ -5,7 +5,7 @@
 #include <conio.h>
 #include <time.h>
 #define MAPSIZE_X 10
-#define MAPSIZE_Y 10
+#define MAPSIZE_Y 15
 // 주인공 #, 몬스터 M, 금 G
 //system("cls"); 화면 삭제
 
