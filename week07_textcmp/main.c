@@ -1,15 +1,17 @@
 ﻿// 두개의 텍스트 파일을 비교하는 프로그램
-// fp1, fp2받고 지정, fgetc = int 값 반환. 비교하다가 처음 다를 때 프린트 시작 후 같아질 때 까지 프린트
+// 파일이 서로 일치함의 조건
+// 1. 두 텍스트 파일의 모든 문자가 같은 문자여야함
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
 	//포인터 선언
 	FILE* fp1, * fp2;
 	fp1 = fp2 = NULL;
-	char file1[100], file2[100];
-
+	char file1[1000], file2[1000];
+	char word1[100], word2[100];
 	//file1 열기
 	printf("첫 번째 파일 이름: ");
 	scanf("%s", file1);
@@ -26,37 +28,30 @@ int main() {
 		printf("두 번째 파일을 찾을 수 없습니다.");
 		exit(1);
 	}
-
-	//c1 c2에 txt 값 저장
+	
+	//일치하면 "파일은 서로 일치함" 다르다면 두 파일 전체 출력
+	//str1에 텍스트 내용 저장
+	int str1[1000], str2[1000];
 	int i = 0;
-	int c1[1000], c2[1000];
-	while ((c1[i] = fgetc(fp1)) != EOF) {
+	while ((str1[i] = fgetc(fp1)) != EOF) { //text가 끝날때까지 반복
 		i++;
 	}
-	c1[i] = '\0';
-	i = 0;
-	while ((c2[i] = fgetc(fp2)) != EOF) {
-		i++;
-	}
-	c2[i] = '\0';
+	str1[i] = '\0'; //문자열의 끝 지정
 
-	int same = 1; //1이면 같은 파일
-	//문자가 다를때까지 반복 ->
-	printf("<< ");
-	for (int i = 0; c1[i] != '\0'; i++) { //a파일 길이만큼 반복
-		if (c1[i] != c2[i]) { //문자 비교 후 다르다면 문장이 끝나면 공백 한번
-			printf("%c", c1[i]); //그 문자 출력
-			if (c1[i + 1] == ' ') printf("%c", ' ');
-			same = 0;
-		}
+	i = 0;
+	while ((str2[i] = fgetc(fp2)) != EOF) { //text가 끝날때까지 반복
+		i++;
 	}
-	if (same == 1) printf("파일은 서로 일치함");
+	str2[i] = '\0'; //문자열의 끝 지정
+
+	printf("<< ");
+	for (i = 0; str1[i] != '\0'; i++) {
+		putchar(str1[i]);
+	}
 	printf(" >> ");
-	for (int i = 0; c2[i] != '\0'; i++) { //a파일 길이만큼 반복
-		if (c2[i] != c1[i]) { //문자 비교 후 다르다면
-			printf("%c", c2[i]); //그 문자 출력
-			if (c2[i + 1] == ' ') printf("%c", ' ');
-		}
+
+	for (i = 0; str2[i] != '\0'; i++) {
+		putchar(str2[i]);
 	}
 
 	fclose(fp1);
