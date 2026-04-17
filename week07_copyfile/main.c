@@ -1,30 +1,21 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int main() {
-	FILE* fp1, * fp2;
-	char file1[100], file2[100];
-	printf("원본 파일 이름: ");
-	scanf("%s", file1);
-	printf("복사 파일 이름: ");
-	scanf("%s", file2);
-
-	if ((fp1 = fopen(file1, "r")) == NULL) {
-		fprintf(stderr, "원본 파일 %d를 열 수 없습니다.\n",file1);
-		exit(1);
+int main() { //a.txt 내용을 b.txt에 복사하는 프로그램 a를 읽고 b의 쓴다
+	FILE* fp1, *fp2;
+	char text;
+	fp1 = NULL;
+	fp2 = NULL;
+	fp1 = fopen("a.txt","r");
+	fp2 = fopen("b.txt","w");
+	if (fp1 == NULL || fp2 == NULL) {
+		printf("파일을 찾을 수 없습니다.");
 	}
-
-	if ((fp2 = fopen(file2, "w")) == NULL) {
-		fprintf(stderr, "원본 파일 %d를 열 수 없습니다.\n", file2);
-		exit(1);
-	}
-
-	int c;
-	while (c = fgetc(fp1) != EOF) {
-		fputc(c, fp2);
+	while ((text=fgetc(fp1)) != EOF) {
+		fputc(text,fp2);
 	}
 	fclose(fp1);
 	fclose(fp2);
-
 	return 0;
 }
+
+	
