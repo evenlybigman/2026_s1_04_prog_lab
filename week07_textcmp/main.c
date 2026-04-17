@@ -3,7 +3,6 @@
 // 1. 두 텍스트 파일의 모든 문자가 같은 문자여야함
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
 
 int main() {
 	//포인터 선언
@@ -17,7 +16,7 @@ int main() {
 	fp1 = fopen(file_name1, "r");
 	if (fp1 == NULL) {
 		printf("첫 번째 파일을 찾을 수 없습니다.");
-		exit(1);
+		return 1;
 	}
 	//file2 열기
 	printf("두 번째 파일 이름: ");
@@ -25,7 +24,8 @@ int main() {
 	fp2 = fopen(file_name2, "r");
 	if (fp2 == NULL) {
 		printf("두 번째 파일을 찾을 수 없습니다.");
-		exit(1);
+		fclose(fp1); //
+		return 1;
 	}
 	
 	while (1) {
