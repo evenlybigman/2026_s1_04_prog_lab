@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="tic-tac-toe.vcxproj" />
+  <Project Path="tic-tac-toe.vcxproj" Id="f6040aaa-1df7-43c9-a970-5398318a18f3" />
 </Solution>

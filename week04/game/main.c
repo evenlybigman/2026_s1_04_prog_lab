@@ -31,9 +31,9 @@ void print_map(int px, int py, int gx, int gy, int mx1, int my1, int mx2, int my
 }
 
 //몬스터 X좌표 이동 함수
-int monster_move_x(int px,int mx) {
+int monster_move_x(int px, int mx) {
 	if (px > mx) {
-		if (mx == MAPSIZE_X-1);
+		if (mx == MAPSIZE_X - 1);
 		else mx++;
 		return mx;
 	}
@@ -45,9 +45,9 @@ int monster_move_x(int px,int mx) {
 }
 
 //몬스터 Y좌표 이동 함수
-int monster_move_y(int py,int my) {
+int monster_move_y(int py, int my) {
 	if (py > my) {
-		if (my == MAPSIZE_Y-1);
+		if (my == MAPSIZE_Y - 1);
 		else my++;
 		return my;
 	}
@@ -67,7 +67,7 @@ int main() {
 	int mx1 = rand() % 10, my1 = rand() % 10;
 	int mx2 = rand() % 10, my2 = rand() % 10;
 	// 몬스터1 위치가 플레이어 위치거나 금의 위치면 위치 다시 설정)
-	while ((mx1 == 0 && my1 == 0)||(mx1 == MAPSIZE_X - 1 && my1 == MAPSIZE_Y - 1)) {
+	while ((mx1 == 0 && my1 == 0) || (mx1 == MAPSIZE_X - 1 && my1 == MAPSIZE_Y - 1)) {
 		mx1 = rand() % 10, my1 = rand() % 10;
 	}
 	// 몬스터2 위치가 플레이어 위치거나 금의 위치면 위치 다시 설정)
@@ -79,7 +79,7 @@ int main() {
 	//게임 진행 반복
 	while (1) {
 		//몬스터와 닿으면 패배
-		print_map(px, py,gx,gy,mx1,my1,mx2,my2);
+		print_map(px, py, gx, gy, mx1, my1, mx2, my2);
 		if ((px == mx1 && py == my1) || (px == mx2 && py == my2)) {
 			printf("Lose");
 			break;
@@ -101,11 +101,11 @@ int main() {
 			else py--;
 			break;
 		case 's':
-			if (px == MAPSIZE_X-1);
+			if (px == MAPSIZE_X - 1);
 			else px++;
 			break;
 		case 'd':
-			if (py == MAPSIZE_Y-1);
+			if (py == MAPSIZE_Y - 1);
 			else py++;
 			break;
 		default:
@@ -119,6 +119,6 @@ int main() {
 		if (rand() % 2 == 0) {
 			mx2 = monster_move_x(px, mx2);
 		}
-		else my2 = monster_move_y(py,my2);
+		else my2 = monster_move_y(py, my2);
 	}
 }
