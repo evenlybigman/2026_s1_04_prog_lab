@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="gugudan.vcxproj" Id="93762b32-2f9a-4f4b-9ee6-17a767bd75a8" />
+</Solution>
