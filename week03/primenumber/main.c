@@ -20,7 +20,7 @@ int main() {
 	scanf("%d", &answer);
 	for (int i = 2; i < answer; i++) { // 소수들을 찾는 식 안에 합을 찾고 있으면 출력
 		if (getprime(i) == 1) {
-			if (getprime(answer - i)==1) {
+			if (getprime(answer - i) == 1) {
 				printf("%d = %d + %d\n", answer, i, answer - i);
 				flag = 1;
 			}
@@ -29,4 +29,4 @@ int main() {
 	if (flag == 0)
 		printf("%d은 소수들의 합으로 표시될 수 없습니다.\n", answer);
 	return 0;
-	}
+}
