@@ -47,7 +47,7 @@ int main() {
 				printf("추가된 책이 없습니다. 책을 추가해주십시오.\n");
 				break;
 			}
-			else if (booknumber < 0 ||booknumber >= count_book) {
+			else if (booknumber < 0 || booknumber >= count_book) {
 				printf("해당 번호의 책이 없습니다. 현재 책 개수 %d\n", count_book);
 				break;
 			}
@@ -65,8 +65,8 @@ int main() {
 				}
 			}
 			if (count == 0) {
-			printf("해당 도서가 없습니다.\n");
-		}
+				printf("해당 도서가 없습니다.\n");
+			}
 			break;
 		case 3:
 			printf("제목 이름 입력: ");
